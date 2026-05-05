@@ -1,0 +1,1 @@
+System.register(["./style-legacy-toXfV2aB.js"],function(e,t){return{setters:[function(e){}],execute:function(){}}});

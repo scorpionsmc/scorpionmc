@@ -1,0 +1,1 @@
+System.register(["./main-legacy-CbIhkxtE.js","./style-legacy-toXfV2aB.js"],function(e,t){return{setters:[function(e){},function(e){}],execute:function(){}}});

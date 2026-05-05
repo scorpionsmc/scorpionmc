@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim | Scorpion MC</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        .contact-header {
+            text-align: center;
+            margin-bottom: 8rem;
+            padding-top: 8rem;
+        }
+
+        .contact-header h1 {
+            font-size: 5.5rem;
+            letter-spacing: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-header p {
+            color: var(--text-dim);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 10rem;
+        }
+
+        .contact-card {
+            background: #050505;
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-card:hover {
+            border-color: rgba(255,255,255,0.2);
+            background: #0a0a0a;
+            transform: translateY(-10px);
+        }
+
+        .contact-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .contact-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 5px;
+        }
+
+        .contact-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            max-width: 350px;
+        }
+
+        .social-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .social-list li a {
+            font-family: 'Hessian', serif;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            color: white;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .social-list li a:hover {
+            opacity: 1;
+            letter-spacing: 8px;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .contact-header h1 { font-size: 3.5rem; }
+            .contact-card { padding: 3rem 1.5rem; }
+        }
+    </style>
+  
+  <link rel="modulepreload" crossorigin href="./assets/main-legacy-CbIhkxtE.js">
+  <link rel="modulepreload" crossorigin href="./assets/style-legacy-toXfV2aB.js">
+</head>
+<body>
+    <nav id="main-nav" class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">SCORPION MC</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Hakkımızda</a></li>
+                <li><a href="galeri.html">Galeri</a></li>
+                <li><a href="ekip.html">Ekip</a></li>
+                <li><a href="hikaye.html">Hikaye</a></li>
+                <li><a href="thec.html">TheC</a></li>
+                <li><a href="tuzuk.html">Tüzük</a></li>
+                <li><a href="iletisim.html" class="active">İletişim</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="contact-header">
+            <h1 class="reveal">BAŞVURU & İLETİŞİM</h1>
+            <p class="reveal">Kardeşliğe Adım At</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card reveal">
+                <div class="contact-icon">✠</div>
+                <h3>DISCORD</h3>
+                <p>Kardeşliğimizin bir parçası olmak ve başvuruda bulunmak için resmi Discord sunucumuza katılabilirsiniz.</p>
+                <a href="https://discord.gg/KXA5dkQ6KN" class="btn-primary">KATIL</a>
+            </div>
+
+            <div class="contact-card reveal">
+                <div class="contact-icon">✠</div>
+                <h3>SOSYAL MEDYA</h3>
+                <p>SOON</p>
+                <ul class="social-list">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo brand-font">SCORPION MC</div>
+            <p class="copyright">© 2025 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+  <script crossorigin id="vite-legacy-polyfill" src="./assets/polyfills-legacy-XJe6vqej.js"></script>
+  <script crossorigin id="vite-legacy-entry" data-src="./assets/iletisim-legacy-DTP-4GJS.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>

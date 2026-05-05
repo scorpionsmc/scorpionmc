@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri | Scorpion MC</title>
+    <style>
+        body {
+            background-color: #000;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 8rem;
+            padding-top: 8rem;
+        }
+
+        .gallery-header h1 {
+            font-size: 5rem;
+            letter-spacing: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-header p {
+            color: var(--text-dim);
+            letter-spacing: 3px;
+            font-size: 1rem;
+        }
+
+        .gallery-container {
+            column-count: 3;
+            column-gap: 1.5rem;
+            padding-bottom: 8rem;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            background: #0a0a0a;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            filter: contrast(1.1) brightness(0.7);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            filter: contrast(1.2) brightness(1);
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: 'VIEW';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: 'Hessian', serif;
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.98);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+            filter: contrast(1.1);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            font-family: serif;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-container { column-count: 2; }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-container { column-count: 1; }
+            .gallery-header h1 { font-size: 3.5rem; }
+        }
+    </style>
+  
+  <link rel="modulepreload" crossorigin href="./assets/main-legacy-CbIhkxtE.js">
+  <link rel="modulepreload" crossorigin href="./assets/style-legacy-toXfV2aB.js">
+</head>
+<body>
+    <nav id="main-nav" class="scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">SCORPION MC</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Hakkımızda</a></li>
+                <li><a href="galeri.html" class="active">Galeri</a></li>
+                <li><a href="ekip.html">Ekip</a></li>
+                <li><a href="hikaye.html">Hikaye</a></li>
+                <li><a href="thec.html">TheC</a></li>
+                <li><a href="tuzuk.html">Tüzük</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="gallery-header">
+            <h1 class="reveal">GALERİ</h1>
+            <p class="reveal">Karanlık Sokaklardan Kareler</p>
+        </div>
+
+        <div class="gallery-container">
+            <!-- Sample images (User should replace with real ones) -->
+            <div class="gallery-item reveal"><img src="assets/foto1.png" alt="Biker 1"></div>
+            <div class="gallery-item reveal"><img src="assets/foto2.webp" alt="Biker 2"></div>
+            <div class="gallery-item reveal"><img src="assets/foto3.webp" alt="Biker 3"></div>
+            <div class="gallery-item reveal"><img src="assets/foto4.webp" alt="Biker 4"></div>
+            <div class="gallery-item reveal"><img src="assets/foto5.webp" alt="Biker 5"></div>
+            <div class="gallery-item reveal"><img src="assets/foto6.webp" alt="Biker 6"></div>
+            <div class="gallery-item reveal"><img src="assets/foto7.webp" alt="Biker 7"></div>
+            <div class="gallery-item reveal"><img src="assets/foto8.png" alt="Biker 8"></div>
+            <div class="gallery-item reveal"><img src="assets/foto9.png" alt="Biker 9"></div>
+            <div class="gallery-item reveal"><img src="assets/foto10.png" alt="Biker 10"></div>
+            <div class="gallery-item reveal"><img src="assets/foto11.png" alt="Biker 11"></div>
+            <div class="gallery-item reveal"><img src="assets/foto12.png" alt="Biker 12"></div>
+            <div class="gallery-item reveal"><img src="assets/foto13.png" alt="Biker 13"></div>
+            <div class="gallery-item reveal"><img src="assets/foto14.png" alt="Biker 14"></div>
+            <div class="gallery-item reveal"><img src="assets/foto15.png" alt="Biker 15"></div>
+            <div class="gallery-item reveal"><img src="assets/foto16.png" alt="Biker 16"></div>
+            <div class="gallery-item reveal"><img src="assets/foto19.webp" alt="Biker 19"></div>
+            <div class="gallery-item reveal"><img src="assets/foto20.webp" alt="Biker 20"></div>
+            <div class="gallery-item reveal"><img src="assets/foto21.webp" alt="Biker 21"></div>
+            <div class="gallery-item reveal"><img src="assets/foto22.webp" alt="Biker 22"></div>
+            <div class="gallery-item reveal"><img src="assets/foto23.png" alt="Biker 23"></div>
+        </div>  
+    </main>
+
+    <div id="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-img" src="" alt="Full View">
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo brand-font">SCORPION MC</div>
+            <p class="copyright">© 2025 SCORPION MC. TÜM HAKLARI SAKLIDIR.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lightbox logic
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-lightbox');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeBtn.click();
+        });
+
+        // Intersection Observer for reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+  <script crossorigin id="vite-legacy-polyfill" src="./assets/polyfills-legacy-XJe6vqej.js"></script>
+  <script crossorigin id="vite-legacy-entry" data-src="./assets/galeri-legacy-XDi4Fj-j.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>
