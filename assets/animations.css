@@ -1,0 +1,663 @@
+/* =============================================
+   SCORPION MC — Premium Animations & UI Polish
+   Mevcut kodları bozmadan eklenen animasyonlar
+   ============================================= */
+
+/* ---- Keyframe Tanımları ---- */
+
+/* Yumuşak parlama efekti */
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Süzülen parçacık efekti */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Nabız atışı */
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(255,255,255,0.1); }
+    50% { box-shadow: 0 0 20px rgba(255,255,255,0.15), 0 0 40px rgba(255,255,255,0.05); }
+}
+
+/* Yavaş dönen gradient */
+@keyframes gradient-rotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Fade in up - staggered */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in scale */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Subtle slide in from left */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Subtle slide in from right */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Border glow */
+@keyframes border-glow {
+    0%, 100% { border-color: rgba(255,255,255,0.05); }
+    50% { border-color: rgba(255,255,255,0.15); }
+}
+
+/* Shine sweep across button */
+@keyframes btn-shine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* Text reveal clip */
+@keyframes textReveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+/* Slow zoom for hero */
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+
+/* Scroll indicator bounce */
+@keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* ============================================
+   GENEL - Geliştirilmiş Reveal Animasyonları
+   ============================================ */
+
+/* Reveal animasyonunu daha zengin hale getir */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0) !important;
+}
+
+/* Staggered reveal delays (JS ile atanacak) */
+.reveal.delay-1 { transition-delay: 0.1s !important; }
+.reveal.delay-2 { transition-delay: 0.2s !important; }
+.reveal.delay-3 { transition-delay: 0.3s !important; }
+.reveal.delay-4 { transition-delay: 0.4s !important; }
+.reveal.delay-5 { transition-delay: 0.5s !important; }
+
+/* ============================================
+   NAV — Geliştirilmiş Navigasyon
+   ============================================ */
+
+/* Nav link hover alt çizgi animasyonu */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #fff, transparent);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Logo hover parlaması */
+.logo {
+    transition: all 0.4s ease !important;
+    position: relative;
+}
+
+.logo:hover {
+    text-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(255,255,255,0.1);
+}
+
+/* Nav scroll geçişi daha smooth */
+nav {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* ============================================
+   HERO — Video Arka Plan Geliştirmeleri
+   ============================================ */
+
+/* Video arka plan yavaş zoom */
+.video-bg {
+    animation: slowZoom 25s ease-in-out infinite alternate;
+}
+
+/* Hero overlay gradient daha dramatik */
+.hero-overlay {
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(0,0,0,0.3) 30%,
+        rgba(0,0,0,0.7) 60%,
+        rgba(0,0,0,0.95) 100%
+    ) !important;
+}
+
+/* Hero başlık ve logo animasyonu */
+#hero .container {
+    animation: fadeInScale 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+#hero .container img {
+    animation: float 5s ease-in-out infinite;
+}
+
+#hero .container h1 {
+    text-shadow: 0 0 60px rgba(255,255,255,0.15);
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+#hero .container p {
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+/* ============================================
+   GLASS CARD — Premium Cam Efekti
+   ============================================ */
+
+.glass-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Glass card üstüne ışık geçişi efekti */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.03),
+        transparent
+    );
+    transition: left 0.8s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.glass-card:hover::before {
+    left: 200%;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(255,255,255,0.03);
+}
+
+/* ============================================
+   BUTON — Premium Buton Animasyonları
+   ============================================ */
+
+.btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Buton shine efekti */
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.4),
+        transparent
+    );
+    transition: none;
+    pointer-events: none;
+}
+
+.btn-primary:hover::after {
+    animation: btn-shine 0.6s ease forwards;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+    letter-spacing: 4px;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 5px 15px rgba(255,255,255,0.05);
+}
+
+/* ============================================
+   GALERİ — Fotoğraf Hover Geliştirmeleri
+   ============================================ */
+
+.gallery-item {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+}
+
+.gallery-item img {
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08) !important;
+}
+
+/* Gallery item VIEW yazısı daha stilize */
+.gallery-item::after {
+    font-size: 1.2rem !important;
+    letter-spacing: 6px !important;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transform: translate(-50%, -50%) translateY(10px) !important;
+}
+
+.gallery-item:hover::after {
+    opacity: 1 !important;
+    transform: translate(-50%, -50%) translateY(0) !important;
+}
+
+/* Lightbox geliştirme */
+#lightbox img {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeInScale 0.4s ease both;
+}
+
+/* ============================================
+   EKİP — Üye Kartı Geliştirmeleri
+   ============================================ */
+
+.member-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.member-card:hover {
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* Portrait glow on hover */
+.member-card:hover .member-portrait img {
+    filter: contrast(1.2) brightness(1.1) !important;
+}
+
+.member-card:hover .member-portrait::before {
+    box-shadow: 0 0 30px rgba(255,255,255,0.05);
+}
+
+/* Rank badge animasyonu */
+.member-rank {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.member-card:hover .member-rank {
+    background: rgba(255,255,255,0.05);
+    letter-spacing: 5px;
+}
+
+/* ============================================
+   HİKAYE — Timeline Geliştirmeleri
+   ============================================ */
+
+/* Timeline çizgisi gradient */
+.tree-line {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(255,255,255,0.2) 10%,
+        rgba(255,255,255,0.2) 90%,
+        transparent 100%
+    ) !important;
+}
+
+/* Node noktası parlama */
+.node-point {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Node content hover daha dramatik */
+.tree-node:hover .node-content {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7), 0 0 20px rgba(255,255,255,0.02) !important;
+}
+
+/* Sol/sağ node'lar farklı yönlerden gelsin */
+.node-content.left {
+    transform: translateX(0);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.node-content.right {
+    transform: translateX(0);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Timeline connector line animasyonu */
+.node-content::before {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.tree-node:hover .node-content::before {
+    background: rgba(255,255,255,0.5) !important;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* Present day özel animasyon */
+.tree-node.present-day .node-content {
+    animation: border-glow 3s ease-in-out infinite;
+}
+
+.present-title {
+    text-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* ============================================
+   İLETİŞİM — Kart Geliştirmeleri
+   ============================================ */
+
+.contact-card {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* İletişim kartı üzerine gelinince üst border glow */
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: scaleX(0);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-card:hover::before {
+    transform: scaleX(1);
+}
+
+.contact-card:hover {
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* Contact icon animasyonu */
+.contact-icon {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.15) rotate(5deg);
+    text-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+/* Social link hover */
+.social-list li a {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.social-list li a:hover {
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* ============================================
+   TÜZÜK — Kitap Geliştirmeleri
+   ============================================ */
+
+/* Nav butonları daha etkileyici */
+.nav-btn {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nav-btn:hover {
+    transform: translateY(-50%) scale(1.1) !important;
+    box-shadow: 0 0 30px rgba(255,255,255,0.15) !important;
+}
+
+.nav-btn:active {
+    transform: translateY(-50%) scale(0.95) !important;
+}
+
+/* ============================================
+   THEC — Model Viewer Geliştirmeleri
+   ============================================ */
+
+.viewer-info h1 {
+    text-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+/* ============================================
+   FOOTER — Footer Geliştirmeleri
+   ============================================ */
+
+.footer-logo {
+    transition: all 0.4s ease;
+}
+
+.footer-logo:hover {
+    text-shadow: 0 0 30px rgba(255,255,255,0.3);
+    letter-spacing: 6px;
+}
+
+.footer-links a {
+    position: relative;
+    transition: all 0.3s ease !important;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: white;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-links a:hover {
+    color: #fff !important;
+}
+
+/* ============================================
+   SECTION DIVIDER — Bölüm Geçiş Efekti
+   ============================================ */
+
+.section-padding {
+    position: relative;
+}
+
+/* ============================================
+   GENEL — Smooth Scroll ve Küçük Dokunuşlar
+   ============================================ */
+
+/* Daha smooth scroll davranışı */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Tüm görsellerde yumuşak yükleme */
+img {
+    transition: opacity 0.4s ease;
+}
+
+/* Selection rengi marka ile uyumlu */
+::selection {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+::-moz-selection {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+/* Scrollbar stilize */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* ============================================
+   CURSOR FOLLOW GLOW (JS ile aktif edilecek)
+   ============================================ */
+
+.cursor-glow {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    mix-blend-mode: screen;
+}
+
+.cursor-glow.active {
+    opacity: 1;
+}
+
+/* ============================================
+   PAGE TRANSITION OVERLAY
+   ============================================ */
+
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.page-loader .loader-logo {
+    font-family: 'Hessian', serif;
+    font-size: 2rem;
+    color: white;
+    letter-spacing: 8px;
+    animation: fadeInScale 0.8s ease both;
+}
+
+/* ============================================
+   MOBILE NAV ENHANCED ANIMATION
+   ============================================ */
+@media (max-width: 1024px) {
+    .nav-links {
+        transition: opacity 0.4s ease, visibility 0.4s ease !important;
+    }
+
+    .nav-links.active a {
+        animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .nav-links.active li:nth-child(1) a { animation-delay: 0.05s; }
+    .nav-links.active li:nth-child(2) a { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(3) a { animation-delay: 0.15s; }
+    .nav-links.active li:nth-child(4) a { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(5) a { animation-delay: 0.25s; }
+    .nav-links.active li:nth-child(6) a { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(7) a { animation-delay: 0.35s; }
+}
