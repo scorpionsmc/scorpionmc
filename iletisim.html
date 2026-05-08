@@ -29,7 +29,7 @@
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 4rem;
             margin-bottom: 10rem;
         }
@@ -149,6 +149,13 @@
                     <li><a href="#"></a></li>
                     <li><a href="#"></a></li>
                 </ul>
+            </div>
+
+            <div class="contact-card reveal">
+                <div class="contact-icon">✠</div>
+                <h3>SİSTEM BAŞVURUSU</h3>
+                <p>Scorpion klasöründeki sistemimiz üzerinden başvurunuzu doğrudan iletebilirsiniz.</p>
+                <a href="scorpion/" class="btn-primary">BAŞVURU YAP</a>
             </div>
         </div>
     </main>
